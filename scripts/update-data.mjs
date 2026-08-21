@@ -105,13 +105,13 @@ function decimalString(raw, decimals) {
 async function getPrice() {
   try {
     const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${MINT}`, { headers: { accept: "application/json" } });
-    if (!response.ok) return null;
+    if (!response.ok) return { priceUsd: null, priceUrl: null };
     const payload = await response.json();
     const pairs = (payload.pairs || []).filter((pair) => pair.chainId === "solana" && Number(pair.priceUsd) > 0);
     pairs.sort((a, b) => Number(b.liquidity?.usd || 0) - Number(a.liquidity?.usd || 0));
-    return pairs[0] ? Number(pairs[0].priceUsd) : null;
+    return pairs[0] ? { priceUsd: Number(pairs[0].priceUsd), priceUrl: pairs[0].url } : { priceUsd: null, priceUrl: null };
   } catch {
-    return null;
+    return { priceUsd: null, priceUrl: null };
   }
 }
 
@@ -182,7 +182,8 @@ async function main() {
   const preBurnRaw = currentSupplyRaw + totalRaw;
   const preBurnSupply = decimalString(preBurnRaw, decimals);
   const burnedPercent = preBurnRaw > 0n ? Number((totalRaw * 1_000_000n) / preBurnRaw) / 10_000 : 0;
-  const priceUsd = await getPrice();
+  const market = await getPrice();
+  const priceUsd = market.priceUsd;
 
   const output = {
     schemaVersion: 1,
@@ -197,6 +198,7 @@ async function main() {
       preBurnSupply,
       burnedPercent,
       priceUsd,
+      priceUrl: market.priceUrl,
       burnedValueUsd: priceUsd ? Number(totalBurned) * priceUsd : null,
     },
     burns,

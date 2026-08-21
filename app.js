@@ -1,6 +1,7 @@
 const nf = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 const compact = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 2 });
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 6 });
+const burnValueUsd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const percent = new Intl.NumberFormat("en-US", { maximumFractionDigits: 4 });
 const dateFormat = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" });
 let dashboard = null;
@@ -32,10 +33,12 @@ function renderStats(data) {
   document.querySelector("#current-supply").textContent = formatNumber(s.currentSupply, true);
   document.querySelector("#burn-percent").textContent = `${percent.format(Number(s.burnedPercent) || 0)}% removed`;
   document.querySelector("#token-price").textContent = formatPrice(s.priceUsd);
-  document.querySelector("#price-source").textContent = s.priceUsd ? "Live DexScreener market data" : "Market price not available yet";
+  const priceSource = document.querySelector("#price-source");
+  priceSource.textContent = s.priceUsd ? "View live price on DexScreener ↗" : "Search PISTA on DexScreener ↗";
+  priceSource.href = s.priceUrl || "https://dexscreener.com/solana/9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE";
   document.querySelector("#burn-value").textContent = s.burnedValueUsd
-    ? `${usd.format(Number(s.burnedValueUsd))} at current price`
-    : "Permanently removed from supply";
+    ? `CURRENT BURN VALUE  ///  ${burnValueUsd.format(Number(s.burnedValueUsd))}`
+    : "CURRENT BURN VALUE  ///  PRICE PENDING";
   document.querySelector("#last-updated").textContent = formatDate(data.updatedAt);
 }
 
@@ -94,6 +97,13 @@ function selectBurn(id, scrollToLog = false) {
   updateSelectionUI();
   drawChart();
   if (scrollToLog) document.querySelector(`#burn-table tr[data-burn-id="${id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function clearSelection() {
+  if (!selectedBurnId) return;
+  selectedBurnId = null;
+  updateSelectionUI();
+  drawChart();
 }
 
 function drawChart() {
@@ -189,15 +199,23 @@ chartCanvas.addEventListener("pointermove", (event) => {
   const burn = hit.point.burn;
   chartCanvas.style.cursor = hit.distance <= 24 ? "pointer" : "crosshair";
   chartTooltip.hidden = false;
-  chartTooltip.innerHTML = `<b>${formatNumber(burn.amount)} PISTA BURNED</b><span>${formatDate(burn.timestamp)}</span><span>Supply after burn: ${formatNumber(hit.point.supply)} PISTA</span>`;
-  const left = Math.max(8, Math.min(chartCanvas.clientWidth - 250, hit.x + 14));
-  const top = Math.max(8, hit.y - 92);
+  chartTooltip.innerHTML = `<b>${formatNumber(burn.amount)} PISTA BURNED</b><span>${formatDate(burn.timestamp)}</span>`;
+  const tooltipWidth = chartTooltip.offsetWidth;
+  const tooltipHeight = chartTooltip.offsetHeight;
+  const left = hit.x + tooltipWidth + 20 <= chartCanvas.clientWidth ? hit.x + 20 : hit.x - tooltipWidth - 20;
+  const top = hit.y - tooltipHeight - 20 >= 8 ? hit.y - tooltipHeight - 20 : hit.y + 20;
   chartTooltip.style.left = `${left}px`; chartTooltip.style.top = `${top}px`;
 });
 chartCanvas.addEventListener("pointerleave", () => { chartTooltip.hidden = true; chartCanvas.style.cursor = "default"; });
 chartCanvas.addEventListener("click", (event) => {
   const hit = nearestHit(event);
   if (hit?.distance <= 24) selectBurn(hit.point.burn.id, true);
+  else clearSelection();
+});
+document.addEventListener("click", (event) => {
+  if (!selectedBurnId) return;
+  if (event.target.closest("#burn-table tr[data-burn-id], #supply-chart")) return;
+  clearSelection();
 });
 window.addEventListener("resize", drawChart);
 loadDashboard();
