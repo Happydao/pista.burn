@@ -4,19 +4,33 @@
     "name": "PISTA",
     "symbol": "PISTA",
     "mint": "9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE",
-    "decimals": 6
+    "decimals": 8
   },
   "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
-  "updatedAt": null,
-  "scan": { "cursor": null, "complete": false },
-  "stats": {
-    "burnCount": 0,
-    "totalBurned": "0",
-    "currentSupply": null,
-    "preBurnSupply": null,
-    "burnedPercent": null,
-    "priceUsd": null,
-    "burnedValueUsd": null
+  "updatedAt": "2026-08-21T21:03:05.918Z",
+  "scan": {
+    "cursor": "txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW",
+    "backfillBefore": "4RdQdNsDatP6XsvbTziXRYFWEd1naW11cHyTQbtEzjLuMXizqG7gHQ2SYBbkCr77raBvghTQuyoW6doYyTG6ocD4",
+    "complete": true
   },
-  "burns": []
+  "stats": {
+    "burnCount": 1,
+    "totalBurned": "15830.958333",
+    "currentSupply": "499983335.07824744",
+    "preBurnSupply": "499999166.03658044",
+    "burnedPercent": 0.0031,
+    "priceUsd": 0.001706,
+    "burnedValueUsd": 27.007614916098003
+  },
+  "burns": [
+    {
+      "id": "txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW:3",
+      "signature": "txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW",
+      "amountRaw": "1583095833300",
+      "amount": "15830.958333",
+      "timestamp": "2026-08-21T08:59:10.000Z",
+      "slot": 440652007,
+      "url": "https://solscan.io/tx/txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW"
+    }
+  ]
 }
