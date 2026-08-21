@@ -1,8 +1,8 @@
 # PISTA Burn Garage
 
-The official on-chain burn dashboard for **PISTA**, the utility token of [Bella Bumper Play 2 Earn](https://www.bellabumper.fun), a pixel-art arcade racing game on Solana.
+The official on-chain burn dashboard for **PISTA**, the utility token of [Bella Bumper Play 2 Earn](https://www.bellabumper.fun), an arcade racing game on Solana.
 
-Players spend PISTA to buy game credits. Every week, 10% of the collected tokens are permanently burned. This dashboard verifies those burns on-chain and publishes the updated totals through GitHub Pages.
+Players spend PISTA to buy game credits. Every week, 70% of collected PISTA is distributed as claimable rewards to the top players, 10% is permanently burned, 10% goes to Torrino DAO, and 10% supports the developers. This dashboard verifies the burn allocation on-chain and publishes the updated totals through GitHub Pages.
 
 ## Live dashboard
 
@@ -64,6 +64,7 @@ The output is written to `dist/`.
 ## Links
 
 - [Play Bella Bumper](https://www.bellabumper.fun)
+- [Buy PISTA on Jupiter](https://jup.ag/tokens/9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE)
 - [Follow Bella Bumper on X](https://x.com/playbellabumper)
 
 ## Data note
