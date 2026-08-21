@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "token": {
+    "name": "PISTA",
+    "symbol": "PISTA",
+    "mint": "9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE",
+    "decimals": 6
+  },
+  "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
+  "updatedAt": null,
+  "scan": { "cursor": null, "complete": false },
+  "stats": {
+    "burnCount": 0,
+    "totalBurned": "0",
+    "currentSupply": null,
+    "preBurnSupply": null,
+    "burnedPercent": null,
+    "priceUsd": null,
+    "burnedValueUsd": null
+  },
+  "burns": []
+}

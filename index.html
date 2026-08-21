@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4efe4" />
+    <meta name="description" content="The official PISTA burn dashboard for Bella Bumper Play 2 Earn. Verified on-chain, updated hourly." />
+    <meta property="og:title" content="PISTA Burn Garage" />
+    <meta property="og:description" content="Every race fuels the burn. Track PISTA supply reduction on Solana." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://happydao.github.io/pista.burn/" />
+    <meta property="og:image" content="https://happydao.github.io/pista.burn/assets/logo-pista.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/jpeg" href="./assets/logo-pista.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>PISTA Burn Garage — Bella Bumper</title>
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="PISTA Burn Garage home">
+        <img src="./assets/logo-pista.jpg" alt="PISTA — Race The Legend" width="54" height="54" />
+        <span><b>PISTA</b><small>BURN GARAGE</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#burns">Burns</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="https://x.com/playbellabumper" target="_blank" rel="noreferrer">X / Twitter</a>
+        <a class="play-button" href="https://www.bellabumper.fun" target="_blank" rel="noreferrer">Play now <span aria-hidden="true">→</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> SOLANA MAINNET · HOURLY SYNC</div>
+          <p class="round-label">BELLA BUMPER / SEASON BURN</p>
+          <h1>RACE.<br /><span>SPEND.</span> BURN.</h1>
+          <p class="hero-intro">Every lap counts. Players spend <b>PISTA</b> for game credits, and every week <b>10% of collected tokens</b> are permanently burned.</p>
+          <div class="hero-actions">
+            <a class="pixel-button primary" href="#burns">View burn log</a>
+            <a class="pixel-button secondary" href="https://www.bellabumper.fun" target="_blank" rel="noreferrer">Enter the race</a>
+          </div>
+        </div>
+
+        <div class="burn-machine" aria-label="PISTA weekly burn engine illustration">
+          <div class="machine-label">BURN ENGINE</div>
+          <div class="machine-window">
+            <div class="pixel-flame flame-one"></div><div class="pixel-flame flame-two"></div>
+            <img src="./assets/logo-pista.jpg" alt="" width="210" height="210" />
+          </div>
+          <div class="machine-meter"><span></span></div>
+          <div class="machine-footer"><span>WEEKLY RATE</span><strong>10%</strong></div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="PISTA token details"><div class="ticker-track">
+        <span>/// PLAY TO EARN</span><span>/// BURN TO REDUCE</span><span>/// VERIFIED ON SOLANA</span><span>/// RACE THE LEGEND</span>
+        <span>/// PLAY TO EARN</span><span>/// BURN TO REDUCE</span><span>/// VERIFIED ON SOLANA</span><span>/// RACE THE LEGEND</span>
+      </div></section>
+
+      <section class="stats-section shell" aria-labelledby="stats-title">
+        <div class="section-heading">
+          <div><span class="section-number">01</span><p>ON-CHAIN TELEMETRY</p><h2 id="stats-title">THE BURN BOARD</h2></div>
+          <p class="updated">LAST PIT STOP<br /><b id="last-updated">Loading chain data…</b></p>
+        </div>
+        <div id="data-notice" class="data-notice" role="status">Connecting to the PISTA burn engine…</div>
+        <div class="stats-grid">
+          <article class="stat-card featured"><p>Total PISTA burned</p><strong id="total-burned">—</strong><span id="burn-value">Permanent supply reduction</span><div class="card-stripes" aria-hidden="true"></div></article>
+          <article class="stat-card"><p>Burn events</p><strong id="burn-count">—</strong><span>Verified transactions</span></article>
+          <article class="stat-card"><p>Current supply</p><strong id="current-supply">—</strong><span id="burn-percent">—% removed</span></article>
+          <article class="stat-card"><p>PISTA price</p><strong id="token-price">—</strong><span id="price-source">DexScreener market data</span></article>
+        </div>
+      </section>
+
+      <section class="chart-section shell" aria-labelledby="chart-title"><div class="chart-panel">
+        <div class="section-heading compact">
+          <div><span class="section-number">02</span><p>SUPPLY REDUCTION</p><h2 id="chart-title">FUEL GAUGE</h2></div>
+          <div class="range-buttons" aria-label="Chart range"><button type="button" data-range="30">30D</button><button type="button" data-range="365">1Y</button><button type="button" class="active" data-range="all">ALL</button></div>
+        </div>
+        <div class="chart-wrap"><canvas id="supply-chart" role="img" aria-label="Historical PISTA supply after verified burns"></canvas><div id="chart-empty" class="chart-empty" hidden>Waiting for the first verified burn lap.</div></div>
+        <div class="chart-legend"><span><i></i> PISTA SUPPLY AFTER BURNS</span><span>LOWER IS BETTER ↓</span></div>
+      </div></section>
+
+      <section id="burns" class="burns-section shell" aria-labelledby="burns-title">
+        <div class="section-heading"><div><span class="section-number">03</span><p>PROOF OF BURN</p><h2 id="burns-title">RACE LOG</h2></div><a class="text-link" href="https://solscan.io/account/5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE" target="_blank" rel="noreferrer">Open burn wallet ↗</a></div>
+        <div class="table-wrap"><table><thead><tr><th>Lap</th><th>PISTA burned</th><th>Date / time</th><th>Transaction</th></tr></thead><tbody id="burn-table"><tr><td colspan="4" class="table-message">Loading burn history…</td></tr></tbody></table></div>
+      </section>
+
+      <section id="how-it-works" class="loop-section"><div class="shell">
+        <div class="section-heading light"><div><span class="section-number">04</span><p>THE GAME LOOP</p><h2>FROM TRACK TO ASH</h2></div></div>
+        <div class="loop-grid">
+          <article><span>01</span><b>GET PISTA</b><p>PISTA is the utility token that powers the Bella Bumper arcade.</p></article><div class="loop-arrow" aria-hidden="true">→</div>
+          <article><span>02</span><b>BUY CREDITS</b><p>Spend PISTA on game credits, jump in your car and hit the track.</p></article><div class="loop-arrow" aria-hidden="true">→</div>
+          <article><span>03</span><b>RACE & EARN</b><p>Play the pixel racing game and compete in the Play 2 Earn economy.</p></article><div class="loop-arrow" aria-hidden="true">→</div>
+          <article class="hot"><span>04</span><b>10% BURN</b><p>Every week, 10% of the collected PISTA is permanently removed.</p></article>
+        </div>
+      </div></section>
+
+      <section class="addresses shell" aria-labelledby="verify-title">
+        <div class="section-heading compact"><div><span class="section-number">05</span><p>DON'T TRUST. VERIFY.</p><h2 id="verify-title">ON-CHAIN IDS</h2></div></div>
+        <div class="address-grid">
+          <article><span>PISTA MINT</span><code>9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE</code><a href="https://solscan.io/token/9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE" target="_blank" rel="noreferrer">VERIFY ↗</a></article>
+          <article><span>BURN OPERATOR</span><code>5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE</code><a href="https://solscan.io/account/5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE" target="_blank" rel="noreferrer">VERIFY ↗</a></article>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="finish-line" aria-hidden="true"></div><div class="shell footer-inner">
+      <div><img src="./assets/logo-pista.jpg" alt="PISTA" width="68" height="68" /><p>BELLA BUMPER<br /><span>PLAY 2 EARN RACING</span></p></div>
+      <p>On-chain data updates every hour.<br />Built for racers. Verified on Solana.</p>
+      <div><a href="https://www.bellabumper.fun" target="_blank" rel="noreferrer">PLAY GAME ↗</a><a href="https://x.com/playbellabumper" target="_blank" rel="noreferrer">FOLLOW ON X ↗</a></div>
+    </div></footer>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "pista-burn-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "update": "node scripts/update-data.mjs",
+    "check": "node --check app.js && node --check scripts/update-data.mjs && node --check scripts/build.mjs",
+    "test": "npm run check && npm run build"
+  }
+}

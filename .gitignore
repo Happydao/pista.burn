@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+dist/
+.next/
+.wrangler/
+.vinext/
+.env
+.env.*
+*.log
+data/*.tmp
