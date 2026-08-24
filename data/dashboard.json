@@ -7,23 +7,32 @@
     "decimals": 8
   },
   "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
-  "updatedAt": "2026-08-24T08:59:09.938Z",
+  "updatedAt": "2026-08-24T09:58:08.054Z",
   "scan": {
-    "cursor": "2fJ6gjLCiSmMjszJK1fTMJKi6NgujETE2fDACbDEfH9CiZzCABC72gTesu1uf557CMWWDTsFPqdwMEaamdunqYuH",
+    "cursor": "5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY",
     "backfillBefore": "4RdQdNsDatP6XsvbTziXRYFWEd1naW11cHyTQbtEzjLuMXizqG7gHQ2SYBbkCr77raBvghTQuyoW6doYyTG6ocD4",
     "complete": true
   },
   "stats": {
-    "burnCount": 1,
-    "totalBurned": "15830.958333",
-    "currentSupply": "499983335.07824744",
+    "burnCount": 2,
+    "totalBurned": "18610.958333",
+    "currentSupply": "499980555.07824744",
     "preBurnSupply": "499999166.03658044",
-    "burnedPercent": 0.0031,
-    "priceUsd": 0.001697,
+    "burnedPercent": 0.0037,
+    "priceUsd": 0.001719,
     "priceUrl": "https://dexscreener.com/solana/5ml6tkr2m3gtcteol9ppkrqpv7pj8bsrvwfu9ztnft9k",
-    "burnedValueUsd": 26.865136291101
+    "burnedValueUsd": 31.992237374427
   },
   "burns": [
+    {
+      "id": "5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY:3",
+      "signature": "5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY",
+      "amountRaw": "278000000000",
+      "amount": "2780",
+      "timestamp": "2026-08-24T09:10:16.000Z",
+      "slot": 441361633,
+      "url": "https://solscan.io/tx/5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY"
+    },
     {
       "id": "txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW:3",
       "signature": "txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW",
