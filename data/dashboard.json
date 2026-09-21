@@ -7,7 +7,7 @@
     "decimals": 8
   },
   "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
-  "updatedAt": "2026-09-20T21:28:57.582Z",
+  "updatedAt": "2026-09-21T00:09:22.022Z",
   "scan": {
     "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
     "backfillBefore": "4RdQdNsDatP6XsvbTziXRYFWEd1naW11cHyTQbtEzjLuMXizqG7gHQ2SYBbkCr77raBvghTQuyoW6doYyTG6ocD4",
@@ -16,12 +16,12 @@
   "stats": {
     "burnCount": 2,
     "totalBurned": "18610.958333",
-    "currentSupply": "499976555.07824744",
-    "preBurnSupply": "499995166.03658044",
+    "currentSupply": "499975705.07824744",
+    "preBurnSupply": "499994316.03658044",
     "burnedPercent": 0.0037,
-    "priceUsd": 0.00122,
+    "priceUsd": 0.001229,
     "priceUrl": "https://dexscreener.com/solana/5ml6tkr2m3gtcteol9ppkrqpv7pj8bsrvwfu9ztnft9k",
-    "burnedValueUsd": 22.70536916626
+    "burnedValueUsd": 22.872867791257
   },
   "burns": [
     {
