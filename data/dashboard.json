@@ -17,7 +17,7 @@
       "status": "active"
     }
   ],
-  "updatedAt": "2026-10-07T10:56:02.109Z",
+  "updatedAt": "2026-10-07T16:21:13.568Z",
   "scans": {
     "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE": {
       "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
@@ -36,9 +36,9 @@
     "currentSupply": "499972685.07824744",
     "preBurnSupply": "499999166.03658044",
     "burnedPercent": 0.0052,
-    "priceUsd": 0.0006347,
+    "priceUsd": 0.0006222,
     "priceUrl": "https://dexscreener.com/solana/5ml6tkr2m3gtcteol9ppkrqpv7pj8bsrvwfu9ztnft9k",
-    "burnedValueUsd": 16.8074642539551
+    "burnedValueUsd": 16.4764522747926
   },
   "burns": [
     {
