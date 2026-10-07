@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const BURNER = "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE";
+const LEGACY_BURNER = "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE";
+const BURNER = "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579";
 const MINT = "9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE";
 const API_KEY = process.env.HELIUS_API_KEY;
 const RPC_URL = process.env.SOLANA_RPC_URL || (API_KEY ? `https://mainnet.helius-rpc.com/?api-key=${API_KEY}` : null);
@@ -20,6 +21,7 @@ async function rpc(method, params, retries = 4) {
     try {
       const response = await fetch(RPC_URL, {
         method: "POST",
+        signal: AbortSignal.timeout(30_000),
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
       });
@@ -30,6 +32,9 @@ async function rpc(method, params, retries = 4) {
       if (!response.ok) throw new Error(`${method}: HTTP ${response.status}`);
       const payload = await response.json();
       if (payload.error) throw new Error(`${method}: ${payload.error.message}`);
+      if (payload.result === null || payload.result === undefined) throw new Error(`${method}: missing RPC result`);
+      if (method === "getSignaturesForAddress" && !Array.isArray(payload.result)) throw new Error(`${method}: invalid signature list`);
+      if (method === "getTransaction" && (!payload.result.transaction?.message || !payload.result.meta)) throw new Error(`${method}: incomplete transaction`);
       return payload.result;
     } catch (error) {
       lastError = error;
@@ -130,8 +135,11 @@ async function main() {
   const supplyResult = await rpc("getTokenSupply", [MINT, { commitment: "confirmed" }]);
   const decimals = Number(supplyResult.value.decimals);
   const currentSupplyRaw = BigInt(supplyResult.value.amount);
-  const known = new Map((existing.burns || []).map((burn) => [burn.id, burn]));
-  const scanState = { cursor: existing.scan?.cursor || null, backfillBefore: existing.scan?.backfillBefore || null, complete: Boolean(existing.scan?.complete) };
+  const known = new Map((existing.burns || []).map((burn) => [burn.id, { ...burn, burner: burn.burner || existing.burner || LEGACY_BURNER }]));
+  const scans = { ...(existing.scans || {}) };
+  if (existing.scan && existing.burner && !scans[existing.burner]) scans[existing.burner] = existing.scan;
+  const previousScan = scans[BURNER];
+  const scanState = { cursor: previousScan?.cursor || null, backfillBefore: previousScan?.backfillBefore || null, complete: Boolean(previousScan?.complete) };
   let signatures = [];
 
   if (!scanState.cursor) {
@@ -142,7 +150,7 @@ async function main() {
     scanState.complete = initial.exhausted;
   } else {
     const recent = await signatureBatch({ until: scanState.cursor, maxPages: UPDATE_MAX_PAGES });
-    if (!recent.exhausted && recent.signatures.length >= LIMIT * UPDATE_MAX_PAGES) {
+    if (!recent.exhausted) {
       throw new Error("More than 500 new wallet transactions found; refusing to skip history.");
     }
     signatures.push(...recent.signatures);
@@ -157,14 +165,16 @@ async function main() {
 
   const uniqueSignatures = [...new Map(signatures.map((item) => [item.signature, item])).values()];
   console.log(`Inspecting ${uniqueSignatures.length} wallet transaction(s)…`);
+  let inspected = 0;
   for (const item of uniqueSignatures) {
     const transaction = await rpc("getTransaction", [item.signature, { encoding: "jsonParsed", maxSupportedTransactionVersion: 0, commitment: "confirmed" }]);
-    if (!transaction) continue;
+    if (transaction.meta.err !== null) throw new Error(`Unexpected failed transaction: ${item.signature}`);
     for (const burn of findBurns(transaction, decimals)) {
       const id = `${item.signature}:${burn.instructionIndex}`;
       known.set(id, {
         id,
         signature: item.signature,
+        burner: BURNER,
         amountRaw: burn.raw.toString(),
         amount: decimalString(burn.raw, decimals),
         timestamp: Number.isFinite(transaction.blockTime) ? new Date(transaction.blockTime * 1000).toISOString() : null,
@@ -172,6 +182,8 @@ async function main() {
         url: `https://solscan.io/tx/${item.signature}`,
       });
     }
+    inspected += 1;
+    if (inspected % 20 === 0) console.log(`Verified ${inspected}/${uniqueSignatures.length} transaction(s).`);
     await sleep(80);
   }
 
@@ -186,11 +198,15 @@ async function main() {
   const priceUsd = market.priceUsd;
 
   const output = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     token: { name: "PISTA", symbol: "PISTA", mint: MINT, decimals },
     burner: BURNER,
+    burners: [
+      { address: LEGACY_BURNER, status: "historical" },
+      { address: BURNER, status: "active" },
+    ],
     updatedAt: new Date().toISOString(),
-    scan: scanState,
+    scans: { ...scans, [BURNER]: scanState },
     stats: {
       burnCount: burns.length,
       totalBurned,

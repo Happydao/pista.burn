@@ -1,32 +1,110 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "token": {
     "name": "PISTA",
     "symbol": "PISTA",
     "mint": "9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE",
     "decimals": 8
   },
-  "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
-  "updatedAt": "2026-10-07T08:33:15.608Z",
-  "scan": {
-    "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
-    "backfillBefore": "4RdQdNsDatP6XsvbTziXRYFWEd1naW11cHyTQbtEzjLuMXizqG7gHQ2SYBbkCr77raBvghTQuyoW6doYyTG6ocD4",
-    "complete": true
+  "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+  "burners": [
+    {
+      "address": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
+      "status": "historical"
+    },
+    {
+      "address": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "status": "active"
+    }
+  ],
+  "updatedAt": "2026-10-07T10:42:22.506Z",
+  "scans": {
+    "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE": {
+      "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
+      "backfillBefore": "4RdQdNsDatP6XsvbTziXRYFWEd1naW11cHyTQbtEzjLuMXizqG7gHQ2SYBbkCr77raBvghTQuyoW6doYyTG6ocD4",
+      "complete": true
+    },
+    "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579": {
+      "cursor": "2X1MYTrYaH2DDvgHfQvzGxNR859MoeFzdzEvFVZCBS7BtePvQ7WxhJPvAgfYhf8kGPcVCSmbT4JwA4vaiskcMTmv",
+      "backfillBefore": "5xJoawrVr2krMaQL4Gfwd8YJdgb59eoPA97VQERNigMBxwULKbiB69gYZ4LMF9cbiZiBGNV7f94evCSXqMCaxSgk",
+      "complete": true
+    }
   },
   "stats": {
-    "burnCount": 2,
-    "totalBurned": "18610.958333",
+    "burnCount": 8,
+    "totalBurned": "26480.958333",
     "currentSupply": "499972685.07824744",
-    "preBurnSupply": "499991296.03658044",
-    "burnedPercent": 0.0037,
+    "preBurnSupply": "499999166.03658044",
+    "burnedPercent": 0.0052,
     "priceUsd": 0.0006347,
     "priceUrl": "https://dexscreener.com/solana/5ml6tkr2m3gtcteol9ppkrqpv7pj8bsrvwfu9ztnft9k",
-    "burnedValueUsd": 11.812375253955098
+    "burnedValueUsd": 16.8074642539551
   },
   "burns": [
     {
+      "id": "65LqLN9Dzjwcvcw4VZMo4hE7V6WwyZipKCUAXDLYcjHTPhDNq9Gy2TSi7BYnrtF5EgRSSbtrhsj1uwKgp7xBNo6n:0",
+      "signature": "65LqLN9Dzjwcvcw4VZMo4hE7V6WwyZipKCUAXDLYcjHTPhDNq9Gy2TSi7BYnrtF5EgRSSbtrhsj1uwKgp7xBNo6n",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "242000000000",
+      "amount": "2420",
+      "timestamp": "2026-10-04T22:05:21.000Z",
+      "slot": 453385569,
+      "url": "https://solscan.io/tx/65LqLN9Dzjwcvcw4VZMo4hE7V6WwyZipKCUAXDLYcjHTPhDNq9Gy2TSi7BYnrtF5EgRSSbtrhsj1uwKgp7xBNo6n"
+    },
+    {
+      "id": "3bBxBNK7crEXYPskAdpnPS7oqUirrmHXDCxNUEHYcdLG7TUCCkCuomsyVHPJEgb4D89x9Q2eEGfid8ZhADc76ir:0",
+      "signature": "3bBxBNK7crEXYPskAdpnPS7oqUirrmHXDCxNUEHYcdLG7TUCCkCuomsyVHPJEgb4D89x9Q2eEGfid8ZhADc76ir",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "60000000000",
+      "amount": "600",
+      "timestamp": "2026-09-27T22:05:52.000Z",
+      "slot": 451126106,
+      "url": "https://solscan.io/tx/3bBxBNK7crEXYPskAdpnPS7oqUirrmHXDCxNUEHYcdLG7TUCCkCuomsyVHPJEgb4D89x9Q2eEGfid8ZhADc76ir"
+    },
+    {
+      "id": "2aAzRFG27rjaR71RUsTKxcaYY8qb8bXn8K4XNyasW6Upe9hQtXdTwdiEFLkHYQQ5VTHFYhU9Nba7KMw58VSsbC5C:0",
+      "signature": "2aAzRFG27rjaR71RUsTKxcaYY8qb8bXn8K4XNyasW6Upe9hQtXdTwdiEFLkHYQQ5VTHFYhU9Nba7KMw58VSsbC5C",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "85000000000",
+      "amount": "850",
+      "timestamp": "2026-09-20T22:05:25.000Z",
+      "slot": 448861251,
+      "url": "https://solscan.io/tx/2aAzRFG27rjaR71RUsTKxcaYY8qb8bXn8K4XNyasW6Upe9hQtXdTwdiEFLkHYQQ5VTHFYhU9Nba7KMw58VSsbC5C"
+    },
+    {
+      "id": "4gRW6PyWDr3WyTmqg8D8eymTpg84MMHuiqgu9VZb47PHeWQqa5T4eBU9LSmYKE1cmZWBDL9YywPVpBZARVTcm2Gq:0",
+      "signature": "4gRW6PyWDr3WyTmqg8D8eymTpg84MMHuiqgu9VZb47PHeWQqa5T4eBU9LSmYKE1cmZWBDL9YywPVpBZARVTcm2Gq",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "146000000000",
+      "amount": "1460",
+      "timestamp": "2026-09-13T22:05:59.000Z",
+      "slot": 446812663,
+      "url": "https://solscan.io/tx/4gRW6PyWDr3WyTmqg8D8eymTpg84MMHuiqgu9VZb47PHeWQqa5T4eBU9LSmYKE1cmZWBDL9YywPVpBZARVTcm2Gq"
+    },
+    {
+      "id": "FnyRiUZUSJrMnDBxR5AqjaScw2wzFB9U9MpnqUnAP78qp41SMCZmKCxtAEwjkVXhy6w6W2y99FfZbPr8zvP4JqJ:0",
+      "signature": "FnyRiUZUSJrMnDBxR5AqjaScw2wzFB9U9MpnqUnAP78qp41SMCZmKCxtAEwjkVXhy6w6W2y99FfZbPr8zvP4JqJ",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "50000000000",
+      "amount": "500",
+      "timestamp": "2026-09-06T22:05:30.000Z",
+      "slot": 444901985,
+      "url": "https://solscan.io/tx/FnyRiUZUSJrMnDBxR5AqjaScw2wzFB9U9MpnqUnAP78qp41SMCZmKCxtAEwjkVXhy6w6W2y99FfZbPr8zvP4JqJ"
+    },
+    {
+      "id": "LNvbiYTtXtbGQBu9ZP6HQhh3YVExjuLqwDyEygHzZRQTmxjrYQdtdT2Rsbn5hQpJXL9LXhMNbMzedwhqxJZiFnM:0",
+      "signature": "LNvbiYTtXtbGQBu9ZP6HQhh3YVExjuLqwDyEygHzZRQTmxjrYQdtdT2Rsbn5hQpJXL9LXhMNbMzedwhqxJZiFnM",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "204000000000",
+      "amount": "2040",
+      "timestamp": "2026-08-30T22:05:54.000Z",
+      "slot": 442988392,
+      "url": "https://solscan.io/tx/LNvbiYTtXtbGQBu9ZP6HQhh3YVExjuLqwDyEygHzZRQTmxjrYQdtdT2Rsbn5hQpJXL9LXhMNbMzedwhqxJZiFnM"
+    },
+    {
       "id": "5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY:3",
       "signature": "5WffBjegLkfErNEaYgbreWGo2MkX5THGC5Avndm36k7bKvC5e6gMZhR1gbfKznwSj4rZxwNf9k6SukG8KT1bKRUY",
+      "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE",
       "amountRaw": "278000000000",
       "amount": "2780",
       "timestamp": "2026-08-24T09:10:16.000Z",
@@ -40,7 +118,8 @@
       "amount": "15830.958333",
       "timestamp": "2026-08-21T08:59:10.000Z",
       "slot": 440652007,
-      "url": "https://solscan.io/tx/txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW"
+      "url": "https://solscan.io/tx/txcpQDo3tjgu2KpTXmEMn6qg72wRjjuMUx8PtsTSdPX295UEahLmALwKG2bd9oe3VAj6U6aVm8UpGbYAtYghShW",
+      "burner": "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE"
     }
   ]
 }

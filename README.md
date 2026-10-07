@@ -11,7 +11,8 @@ Players spend PISTA to buy game credits. Every week, 70% of collected PISTA is d
 ## Verified addresses
 
 - PISTA mint: [`9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE`](https://solscan.io/token/9CaQUthsVMugZzMvskrrvcHXyjFqHGdNtGkPT8QSRACE)
-- Burn operator: [`5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE`](https://solscan.io/account/5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE)
+- Historical burn wallet: [`5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE`](https://solscan.io/account/5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE)
+- Active burn wallet: [`3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579`](https://solscan.io/account/3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579)
 
 The operator wallet also handles other tokens. A transaction is counted only when it contains an SPL Token `burn` or `burnChecked` instruction resolved to the exact PISTA mint.
 
@@ -25,7 +26,7 @@ The workflow in `.github/workflows/update-and-deploy.yml` runs every hour at min
 4. Current token supply is read from Solana and price data is requested from DexScreener.
 5. Updated data is committed by `github-actions[bot]` and the static site is deployed to GitHub Pages.
 
-The collector stores a scan cursor and continues older-history backfills when necessary. After the initial scan, ordinary hourly runs request only new wallet transactions.
+The collector preserves previously recorded burns from the historical wallet and scans the active wallet for new burns. Scan cursors are stored per wallet, and older-history backfills continue when necessary. Each burn records its source wallet; events are deduplicated by transaction signature and instruction index. After the initial scan, ordinary hourly runs request only new active-wallet transactions. Missing or incomplete RPC responses are retried; if verification fails, the data and cursors are not written.
 
 ## Repository secret
 
