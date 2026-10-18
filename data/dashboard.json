@@ -17,7 +17,7 @@
       "status": "active"
     }
   ],
-  "updatedAt": "2026-10-18T20:32:50.054Z",
+  "updatedAt": "2026-10-18T23:01:35.491Z",
   "scans": {
     "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE": {
       "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
@@ -25,22 +25,32 @@
       "complete": true
     },
     "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579": {
-      "cursor": "5T2d91N1Y5aPQiSqRWtbeCwo8QgrDtQ6niB4AAs6kG8XmQvwewpohXFH5UryJvBuXAmp48pjiinreLwRCXBTdScU",
+      "cursor": "2CXPhvEA1piLpUMXew1Qh63GprT2Nt28emRqtmDCrbP15LS9rSPtuUXZJK3yaKRsTgh8V1dDBomaaLosZqnoWWe9",
       "backfillBefore": "5xJoawrVr2krMaQL4Gfwd8YJdgb59eoPA97VQERNigMBxwULKbiB69gYZ4LMF9cbiZiBGNV7f94evCSXqMCaxSgk",
       "complete": true
     }
   },
   "stats": {
-    "burnCount": 9,
-    "totalBurned": "29710.958333",
-    "currentSupply": "499969455.07824744",
+    "burnCount": 10,
+    "totalBurned": "31390.958333",
+    "currentSupply": "499967775.07824744",
     "preBurnSupply": "499999166.03658044",
-    "burnedPercent": 0.0059,
-    "priceUsd": 0.0002323,
+    "burnedPercent": 0.0062,
+    "priceUsd": 0.0002243,
     "priceUrl": "https://dexscreener.com/solana/5ml6tkr2m3gtcteol9ppkrqpv7pj8bsrvwfu9ztnft9k",
-    "burnedValueUsd": 6.9018556207559
+    "burnedValueUsd": 7.0409919540919
   },
   "burns": [
+    {
+      "id": "Bg4gdx6KJe3ciMMp31krnwzNtz2FqvTUpKbk6ZFBct9MojZn9Ha4orP6wsukitjJNmFPuj7SaMNXZuBURKN7NYN:0",
+      "signature": "Bg4gdx6KJe3ciMMp31krnwzNtz2FqvTUpKbk6ZFBct9MojZn9Ha4orP6wsukitjJNmFPuj7SaMNXZuBURKN7NYN",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "168000000000",
+      "amount": "1680",
+      "timestamp": "2026-10-18T22:05:44.000Z",
+      "slot": 458594456,
+      "url": "https://solscan.io/tx/Bg4gdx6KJe3ciMMp31krnwzNtz2FqvTUpKbk6ZFBct9MojZn9Ha4orP6wsukitjJNmFPuj7SaMNXZuBURKN7NYN"
+    },
     {
       "id": "3WxM8ho7BBhtGKnsu92jT2C1pQ1SUFatcZi6HDRga5L8haEYrQ8pBasuj3seacPWH56K78rndmNwMvSJZV1Dz5u4:0",
       "signature": "3WxM8ho7BBhtGKnsu92jT2C1pQ1SUFatcZi6HDRga5L8haEYrQ8pBasuj3seacPWH56K78rndmNwMvSJZV1Dz5u4",
