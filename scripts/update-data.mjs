@@ -44,21 +44,24 @@ async function rpc(method, params, retries = 4) {
   throw lastError || new Error(`${method} failed`);
 }
 
-async function signatureBatch({ before = null, until = null, maxPages }) {
+async function signatureBatch({ before = null, stopAt = null, maxPages }) {
   const signatures = [];
   let pageBefore = before;
   let exhausted = false;
+  let reachedStop = false;
   for (let page = 0; page < maxPages; page += 1) {
     const options = { limit: LIMIT };
     if (pageBefore) options.before = pageBefore;
-    if (until) options.until = until;
     const batch = await rpc("getSignaturesForAddress", [BURNER, options]);
     if (!batch?.length) { exhausted = true; break; }
-    signatures.push(...batch.filter((item) => item.err === null));
+    const stopIndex = stopAt ? batch.findIndex((item) => item.signature === stopAt) : -1;
+    const newItems = stopIndex >= 0 ? batch.slice(0, stopIndex) : batch;
+    signatures.push(...newItems.filter((item) => item.err === null));
+    if (stopIndex >= 0) { reachedStop = true; break; }
     pageBefore = batch.at(-1).signature;
     if (batch.length < LIMIT) { exhausted = true; break; }
   }
-  return { signatures, exhausted, oldest: pageBefore };
+  return { signatures, exhausted, reachedStop, oldest: pageBefore };
 }
 
 function accountPubkey(account) {
@@ -149,9 +152,9 @@ async function main() {
     scanState.backfillBefore = initial.oldest;
     scanState.complete = initial.exhausted;
   } else {
-    const recent = await signatureBatch({ until: scanState.cursor, maxPages: UPDATE_MAX_PAGES });
-    if (!recent.exhausted) {
-      throw new Error("More than 500 new wallet transactions found; refusing to skip history.");
+    const recent = await signatureBatch({ stopAt: scanState.cursor, maxPages: UPDATE_MAX_PAGES });
+    if (!recent.reachedStop) {
+      throw new Error("Saved wallet cursor was not found within 500 transactions; refusing to skip history. Check the RPC response and scan state.");
     }
     signatures.push(...recent.signatures);
     if (recent.signatures.length) scanState.cursor = recent.signatures[0].signature;
