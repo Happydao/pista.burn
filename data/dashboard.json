@@ -17,7 +17,7 @@
       "status": "active"
     }
   ],
-  "updatedAt": "2026-11-15T21:40:50.065Z",
+  "updatedAt": "2026-11-16T01:53:09.672Z",
   "scans": {
     "5G62fW1BuK6k9B6sGwvTBtoKRPseshj9SSYPzudSPUYE": {
       "cursor": "4Wx9bV8GHzphAiJF79kcAgoeNJSY2TXCTU5UdCCMfPd24PXN9eKBi6sxkR1GbNUP1FTUsfXE4TPorQ4b6mXZ1Xsy",
@@ -25,22 +25,32 @@
       "complete": true
     },
     "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579": {
-      "cursor": "FgsTnB6DVfGUnDweJDiyW8X7QsQsNtNNXrGDAwrk3nC1krJqAF5Not4jzT1CbEkUjfd6qiDSWNo5REoXvrGHkHA",
+      "cursor": "42aXxSS51EkvsaNvpCbj4xB663tGXZwtUDewMhE7mcHyH8yHYX1PMbaAFcQEaRfd2c2rQVN6GgBTVR5nJVTHdzS2",
       "backfillBefore": "5xJoawrVr2krMaQL4Gfwd8YJdgb59eoPA97VQERNigMBxwULKbiB69gYZ4LMF9cbiZiBGNV7f94evCSXqMCaxSgk",
       "complete": true
     }
   },
   "stats": {
-    "burnCount": 13,
-    "totalBurned": "34840.958333",
-    "currentSupply": "499964325.07824744",
+    "burnCount": 14,
+    "totalBurned": "38440.958333",
+    "currentSupply": "499960725.07824744",
     "preBurnSupply": "499999166.03658044",
-    "burnedPercent": 0.0069,
+    "burnedPercent": 0.0076,
     "priceUsd": null,
     "priceUrl": null,
     "burnedValueUsd": null
   },
   "burns": [
+    {
+      "id": "4e3XHTTbyRvN8eYdrK87KrJHsn1szVF8CWxVdtMC1y9fEqNdmwgynXwjjGT6ZvLQSN37mJQZHDjGcEXCpr4VtAeC:0",
+      "signature": "4e3XHTTbyRvN8eYdrK87KrJHsn1szVF8CWxVdtMC1y9fEqNdmwgynXwjjGT6ZvLQSN37mJQZHDjGcEXCpr4VtAeC",
+      "burner": "3jqkDWcqKoxrh2u3ttdwXus2PZt7grGnS3bGsFnCq579",
+      "amountRaw": "360000000000",
+      "amount": "3600",
+      "timestamp": "2026-11-15T23:05:19.000Z",
+      "slot": 469907353,
+      "url": "https://solscan.io/tx/4e3XHTTbyRvN8eYdrK87KrJHsn1szVF8CWxVdtMC1y9fEqNdmwgynXwjjGT6ZvLQSN37mJQZHDjGcEXCpr4VtAeC"
+    },
     {
       "id": "sDZvP9Lz1uKpYnztFhRSojcbxYsXaXQNjBwJJeT7ePDFrXQECVFXCMt6dPGE6taTjEubgWohvFd5RXc2aSNtaju:0",
       "signature": "sDZvP9Lz1uKpYnztFhRSojcbxYsXaXQNjBwJJeT7ePDFrXQECVFXCMt6dPGE6taTjEubgWohvFd5RXc2aSNtaju",
